@@ -1,31 +1,36 @@
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
-<h1>ARRIBA KOL</h1>
+<h3>Buscar por region <small> region activa: {{ regionActiva | titlecase }}</small> </h3>
 
+<div class="row">
+
+    <div class="col">
+
+        <!-- [class.btn-primary] = "region === regionActiva" OPCION 1 PARA APLICACION DE CLASES-->
+
+        <!-- [ngClass]="
+                {
+                    'btn-primary': regionActiva === region,
+                    'btn-outline-primary': regionActiva !== region
+                }" OPCION 2 PARA LA APLICACION DE CLASES--> 
+
+                <!-- [class]="( region === regionActiva ) ? 'btn btn-primary': 'btn btn-outline-primary'" OPCION 3 CON OPERADOR TERNARIO-->
+        
+        <button *ngFor="let region of regiones"
+                [class]="getClaseCSS( region )"
+                (click) = "activarRegion( region )"> 
+            {{ region | titlecase}}
+        </button>
+
+    </div>
+
+    <div *ngIf=" paisesObtenidos.length > 0" class="row">
+
+        <div class="col">
+    
+            <app-pais-tabla [paisesRes] = paisesObtenidos ></app-pais-tabla>
+    
+        </div>
+        
+    </div>
+    
+</div>
 

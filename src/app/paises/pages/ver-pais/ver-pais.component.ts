@@ -24,8 +24,8 @@ export class VerPaisComponent implements OnInit {
     this.cambiosRuta.params
     .pipe
     (
-      switchMap( ( {id} ) => this.PaisService.getPaisPorCodigo( id ) ),
-      tap( console.log ) //Recibe el producto del observador de arriba y lo imprime
+      switchMap( ( {id} ) => this.PaisService.getPaisPorCodigo( id ) )//,
+      //tap( console.log ) //Recibe el producto del observador de arriba y lo imprime
     )
     .subscribe( pais => 
     {

@@ -31,7 +31,7 @@ export class PorPaisComponent {
      {
  
        this.paisesObtenidos = paises
-       console.log(this.paisesObtenidos)
+      //  console.log(this.paisesObtenidos)
  
      }, (err) => {
        this.errorFound = true;
