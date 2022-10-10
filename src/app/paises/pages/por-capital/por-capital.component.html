@@ -1,0 +1,33 @@
+<h2>Por Capital</h2>
+
+<hr>
+
+<div class="row">
+
+    <div class="col">
+
+        <app-pais-input
+            (onEnter)="buscarCapital( $event )"
+            (onDebounce)="sugerencias( $event )"
+            placeholder = "Por capital..."
+        ></app-pais-input>
+
+    </div>
+
+</div>
+
+<hr>
+
+<div *ngIf="errorFound" class="alert alert-danger">
+    No se encontraron coincidencias con la busqueda: {{ capital }}
+</div>
+
+<div *ngIf=" capitalesObtenidos.length > 0" class="row">
+
+    <div class="col">
+
+        <app-pais-tabla [paisesRes] = capitalesObtenidos ></app-pais-tabla>
+
+    </div>
+    
+</div>
